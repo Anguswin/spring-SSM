@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <!DOCTYPE mapper SYSTEM "../dtd/mybatis-3-mapper.dtd" > -->
+
+<mapper namespace="com.huayun.dao.AppMapperDao">
+	<select id="findAll"  resultType="App">
+		select * from app
+	</select>
+	
+	<select id="findById" resultType="App">
+		select * from app where id = #{id}
+	</select>
+	
+	
+	<insert id="addApp" parameterType="App">
+		insert into app values(
+		null,#{name},#{describe},#{leader},#{contact},#{unit})
+	</insert>
+	
+	<update id="appUpdate" parameterType="App">
+		update app set name=#{name},`describe`=#{describe},leader=#{leader},contact=#{contact},unit=#{unit}
+		 where id=#{id}
+	</update>
+	
+	<delete id="appDelete" parameterType="App">
+		delete from app where id =#{id}
+	</delete>
+</mapper>  
